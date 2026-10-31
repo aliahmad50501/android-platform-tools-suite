@@ -1,0 +1,18 @@
+# Captures and local media
+captures/
+*.png
+*.mp4
+*.log
+
+# Operating System Files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*~

@@ -1,0 +1,88 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "ADB: Launch Interactive Multi-Tool",
+      "type": "shell",
+      "command": "${workspaceFolder}\\adb-toolkit.bat",
+      "windows": {
+        "command": "${workspaceFolder}\\adb-toolkit.bat"
+      },
+      "osx": {
+        "command": "bash ${workspaceFolder}/adb-toolkit.sh"
+      },
+      "linux": {
+        "command": "bash ${workspaceFolder}/adb-toolkit.sh"
+      },
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "ADB: Check Connected Devices",
+      "type": "shell",
+      "command": "${workspaceFolder}\\platform-tools\\adb.exe devices -l",
+      "windows": {
+        "command": "${workspaceFolder}\\platform-tools\\adb.exe devices -l"
+      },
+      "osx": {
+        "command": "adb devices -l"
+      },
+      "linux": {
+        "command": "adb devices -l"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "ADB: Restart ADB Server",
+      "type": "shell",
+      "command": "${workspaceFolder}\\platform-tools\\adb.exe kill-server && ${workspaceFolder}\\platform-tools\\adb.exe start-server && ${workspaceFolder}\\platform-tools\\adb.exe devices",
+      "windows": {
+        "command": "${workspaceFolder}\\platform-tools\\adb.exe kill-server && ${workspaceFolder}\\platform-tools\\adb.exe start-server && ${workspaceFolder}\\platform-tools\\adb.exe devices"
+      },
+      "osx": {
+        "command": "adb kill-server && adb start-server && adb devices"
+      },
+      "linux": {
+        "command": "adb kill-server && adb start-server && adb devices"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "ADB: Open Interactive Shell",
+      "type": "shell",
+      "command": "${workspaceFolder}\\platform-tools\\adb.exe shell",
+      "windows": {
+        "command": "${workspaceFolder}\\platform-tools\\adb.exe shell"
+      },
+      "osx": {
+        "command": "adb shell"
+      },
+      "linux": {
+        "command": "adb shell"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "ADB: View Live Logcat",
+      "type": "shell",
+      "command": "${workspaceFolder}\\platform-tools\\adb.exe logcat -v time",
+      "windows": {
+        "command": "${workspaceFolder}\\platform-tools\\adb.exe logcat -v time"
+      },
+      "osx": {
+        "command": "adb logcat -v time"
+      },
+      "linux": {
+        "command": "adb logcat -v time"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
