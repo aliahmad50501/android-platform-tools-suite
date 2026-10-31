@@ -1,38 +1,46 @@
 # Android SDK Platform-Tools & ADB Automation Suite
 
-[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-0078D6.svg)](https://github.com)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-0078D6.svg?logo=windows)](https://github.com)
 [![SDK Version](https://img.shields.io/badge/Platform--Tools-v37.0.1-3DDC84.svg?logo=android)](https://developer.android.com/tools/releases/platform-tools)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![ADB & Fastboot](https://img.shields.io/badge/Tools-ADB%20%7C%20Fastboot-orange.svg)]()
-[![Pupil & Student Guide](https://img.shields.io/badge/Guide-Student%20%26%20Pupils-purple.svg)](STUDENT_GUIDE.md)
+[![Pupil Guide](https://img.shields.io/badge/Guide-Pupil%20Handbook-purple.svg)](STUDENT_GUIDE.md)
 
 A complete, modern developer toolkit combining **official Google Android SDK Platform-Tools (Revision 37.0.1)** with an **interactive automation suite**, one-click Windows PATH setup, VS Code task integration, and cross-platform support for Windows, macOS, and Linux.
 
-> 🎓 **Students & Beginners**: Read our step-by-step [**Pupil & Student Guide (STUDENT_GUIDE.md)**](STUDENT_GUIDE.md) for how to enable USB debugging, run in CMD, PowerShell, VS Code, and Mac Terminal.
+> 🎓 **Pupils & Educators**: Please refer to our step-by-step [**Pupil Handbook (STUDENT_GUIDE.md)**](STUDENT_GUIDE.md) for detailed tutorials on enabling USB debugging, executing commands in CMD, PowerShell, VS Code, and macOS Terminal.
 
 ---
 
-## Highlights
+## Executive Overview
+
+Connecting a laptop to an Android device should be accessible to every pupil. This repository packages Google's official, battle-tested `adb` and `fastboot` binaries with an interactive terminal assistant, automated environment installers, and built-in Visual Studio Code task runners. 
+
+Whether a pupil is learning Android development, managing device backups, sideloading applications, or exploring mobile operating systems, this project eliminates configuration hurdles while maintaining full open-source legal compliance.
+
+---
+
+## Key Highlights
 
 * **100% Original Binaries**: Contains un-tampered, official `adb.exe`, `fastboot.exe`, and required runtime DLLs from Google AOSP (rev 37.0.1).
-* **Unchanged Commands**: All standard command-line flags and terminal behaviors are fully intact.
-* **Interactive Multi-Tool CLI**:
-  * Windows: [`adb-toolkit.bat`](adb-toolkit.bat) (Batch) and [`scripts/toolkit.ps1`](scripts/toolkit.ps1) (PowerShell).
-  * macOS & Linux: [`adb-toolkit.sh`](adb-toolkit.sh) (Bash).
+* **Unchanged Standard Commands**: All original commands, flags, and parameters remain identical to standard developer documentation.
+* **Interactive Multi-Tool Assistant**:
+  * **Windows**: [`adb-toolkit.bat`](adb-toolkit.bat) (Batch) and [`scripts/toolkit.ps1`](scripts/toolkit.ps1) (PowerShell).
+  * **macOS & Linux**: [`adb-toolkit.sh`](adb-toolkit.sh) (Bash).
 * **One-Click Environment Setup**:
-  * Windows: [`scripts/setup-path.bat`](scripts/setup-path.bat).
-  * macOS / Linux: [`scripts/setup-mac-linux.sh`](scripts/setup-mac-linux.sh).
-* **VS Code Integration**: Built-in `.vscode/tasks.json` allowing one-click execution of ADB commands directly from the VS Code command palette.
+  * **Windows**: [`scripts/setup-path.bat`](scripts/setup-path.bat) safely registers tools to the User PATH.
+  * **macOS / Linux**: [`scripts/setup-mac-linux.sh`](scripts/setup-mac-linux.sh) configures tools via Homebrew or official binaries.
+* **Integrated Development Environment (IDE)**: Pre-configured [`.vscode/tasks.json`](.vscode/tasks.json) allows every pupil to execute ADB commands directly from Visual Studio Code.
 
 ---
 
-## Directory Structure
+## Directory Architecture
 
 ```text
-android-sdk-platform-tools-adb-37-0-1/
+android-platform-tools-suite/
 ├── adb-toolkit.bat            # Windows Interactive console menu (Batch)
 ├── adb-toolkit.sh             # macOS & Linux Interactive menu (Bash)
-├── STUDENT_GUIDE.md           # Step-by-step beginner guide for pupils & students
+├── STUDENT_GUIDE.md           # Step-by-step beginner guide for each pupil
 ├── README.md                  # Project documentation & cheatsheet
 ├── LICENSE                    # Apache 2.0 License
 ├── NOTICE.txt                 # Original AOSP notices and third-party licenses
@@ -60,26 +68,43 @@ android-sdk-platform-tools-adb-37-0-1/
 
 ---
 
-## Quick Start Guide
+## Supported Platforms & Execution Methods
 
-### Option 1: Use the Interactive Menu
-Double-click [`adb-toolkit.bat`](adb-toolkit.bat) in the root folder. You will get an interactive menu:
-1. Connect via USB or Wireless ADB
-2. Drag-and-drop APK installation
-3. Capture screenshots / record screen directly to `.\captures\`
-4. Reboot into Recovery or Bootloader/Fastboot
-5. Device information and live battery diagnostics
+| Operating System | Quick Launcher | Automated Setup | Integrated Editor |
+| :--- | :--- | :--- | :--- |
+| **Windows 10 / 11** | `adb-toolkit.bat` | `scripts/setup-path.bat` | VS Code (`tasks.json`) |
+| **Windows (PowerShell)** | `scripts/toolkit.ps1` | `scripts/setup-path.ps1` | Windows Terminal |
+| **macOS (Darwin)** | `adb-toolkit.sh` | `scripts/setup-mac-linux.sh` | VS Code / zsh |
+| **Linux (Ubuntu/Fedora)** | `adb-toolkit.sh` | `scripts/setup-mac-linux.sh` | Terminal / bash |
 
-### Option 2: Add to Windows PATH (Recommended)
-Double-click [`scripts/setup-path.bat`](scripts/setup-path.bat) or run:
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\setup-path.ps1
-```
-Once added, open a new Command Prompt or PowerShell window and type:
-```cmd
-adb version
-fastboot --version
-```
+---
+
+## Quick Start Guide for Every Pupil
+
+### 1. Windows Laptops
+* **Method A (Interactive Menu)**: Double-click [`adb-toolkit.bat`](adb-toolkit.bat) in the root folder. Select from the numbered options to check devices, install APKs, or capture screenshots.
+* **Method B (Add to Windows PATH)**: Double-click [`scripts/setup-path.bat`](scripts/setup-path.bat). Once complete, open any Command Prompt or PowerShell window and run:
+  ```cmd
+  adb version
+  adb devices -l
+  ```
+
+### 2. macOS & Linux Laptops
+1. Open Terminal in this repository directory.
+2. Grant execution permissions and run the installer:
+   ```bash
+   chmod +x scripts/setup-mac-linux.sh adb-toolkit.sh
+   ./scripts/setup-mac-linux.sh
+   ```
+3. Launch the interactive menu:
+   ```bash
+   ./adb-toolkit.sh
+   ```
+
+### 3. Visual Studio Code (VS Code)
+1. Open this repository folder in **VS Code**.
+2. Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> (or <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> on macOS).
+3. Type `Tasks: Run Task` and select any predefined action (e.g., `ADB: Check Connected Devices`, `ADB: View Live Logcat`, or `ADB: Open Interactive Shell`).
 
 ---
 
@@ -87,26 +112,26 @@ fastboot --version
 
 All commands remain completely standard and unmodified:
 
-### 1. Device Discovery & Server Control
-| Command | Description |
+### 1. Device Discovery & Daemon Management
+| Command | Action |
 | :--- | :--- |
-| `adb devices -l` | List connected devices with detailed product info |
-| `adb kill-server` | Terminate the background ADB server process |
-| `adb start-server` | Start or reinitialize the ADB server |
-| `fastboot devices` | Detect devices connected in Fastboot/Bootloader mode |
+| `adb devices -l` | Lists connected devices with model and USB port details |
+| `adb kill-server` | Terminates the background ADB server process |
+| `adb start-server` | Initializes the ADB daemon |
+| `fastboot devices` | Detects hardware in bootloader mode |
 
-### 2. Wireless ADB (Android 11+)
+### 2. Wireless Debugging (Android 11+)
 ```cmd
-# 1. Enable pairing on phone (Settings > Developer options > Wireless debugging)
+# Step 1: Pair device with 6-digit code
 adb pair 192.168.1.50:37123
 
-# 2. Connect to the device IP and Port
+# Step 2: Connect to device
 adb connect 192.168.1.50:5555
 ```
 
-### 3. App Management
+### 3. Application Deployment & Management
 ```cmd
-# Install an application (-r replaces existing app)
+# Install or update an APK
 adb install -r "path\to\application.apk"
 
 # List third-party installed packages
@@ -116,24 +141,24 @@ adb shell pm list packages -3
 adb uninstall com.example.package
 ```
 
-### 4. File Transfers & Screen Capture
+### 4. File Operations & Screen Capture
 ```cmd
-# Push a file to the phone's Download folder
-adb push sample.txt /sdcard/Download/
+# Push a file from laptop to device
+adb push local_file.pdf /sdcard/Download/
 
-# Pull a file from phone to PC
+# Pull a file from device to laptop
 adb pull /sdcard/Download/sample.txt .\
 
-# Take a screenshot
+# Take a screenshot directly to laptop
 adb exec-out screencap -p > screenshot.png
 ```
 
-### 5. Reboot Modes
+### 5. Device Reboot Controls
 ```cmd
 # Normal system reboot
 adb reboot
 
-# Reboot into Recovery (TWRP / OrangeFox / Stock)
+# Reboot into Recovery Mode (Stock / Custom Recovery)
 adb reboot recovery
 
 # Reboot into Fastboot / Bootloader
@@ -142,29 +167,29 @@ adb reboot bootloader
 
 ---
 
-## Publishing to Your GitHub
+## Publishing to GitHub
 
-Follow these steps to upload this project to your GitHub account:
+To publish this project to your GitHub profile:
 
 ### 1. Initialize Git in this directory
 ```cmd
 git init -b main
 git add .
-git commit -m "Initial commit: Android SDK Platform-Tools v37.0.1 with Automation Suite"
+git commit -m "Initial commit: Android Platform-Tools v37.0.1 with Automation Suite"
 ```
 
-### 2. Link your remote repository
-Create a new repository on [GitHub](https://github.com/new) (e.g. `android-platform-tools-suite`) and run:
+### 2. Connect and Push to Your GitHub Repository
+Create a new public repository on [GitHub](https://github.com/new) named `android-platform-tools-suite`, then execute:
 ```cmd
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+git remote add origin https://github.com/YOUR_USERNAME/android-platform-tools-suite.git
 git push -u origin main
 ```
 
 ---
 
-## Legal & Attribution
+## Legal Attribution & License
 
-* **Android SDK Platform-Tools** is developed by Google LLC as part of the [Android Open Source Project (AOSP)](https://source.android.com/).
-* Licensed under the **Apache License, Version 2.0**.
-* Third-party notices and licenses are preserved in [NOTICE.txt](file:///e:/Downloads/android-sdk-platform-tools-adb-37-0-1/platform-tools/NOTICE.txt).
-* Automation scripts, documentation, and tooling provided under the [Apache 2.0 License](LICENSE).
+* **Android SDK Platform-Tools** is created and maintained by Google LLC as part of the [Android Open Source Project (AOSP)](https://source.android.com/).
+* Distributed under the terms of the **Apache License, Version 2.0**.
+* Third-party notices and licenses are fully preserved in [NOTICE.txt](platform-tools/NOTICE.txt).
+* Automation scripts, student curricula, and tooling are provided under the [Apache 2.0 License](LICENSE).
